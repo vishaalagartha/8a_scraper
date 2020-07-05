@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="8a_scraper",
-    version="0.0.1",
+    version="0.0.2",
     author="Vishaal Agartha",
     author_email="vishaalagartha@gmail.com",
     license="MIT",
