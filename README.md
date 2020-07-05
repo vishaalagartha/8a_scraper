@@ -21,5 +21,7 @@ These variables are accessed using `os.getenv()`.
 
 ### API
 Currently, the package only contains 2 modules: users and ascents.
-
 The package will be expanding to include other content as well, but this is a start.
+
+For more information, about the API please refer to the full [documentation](https://github.com/vishaalagartha/8a_scraper/blob/master/API.md)
+
