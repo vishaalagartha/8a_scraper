@@ -1,4 +1,5 @@
 import json, requests
+from slugify import slugify
 from bs4 import BeautifulSoup
 
 try:
@@ -7,7 +8,7 @@ except:
     from _8a_scraper.utils import login
 
 def get_user_info(user):
-    user = user.lower().replace(' ', '-')
+    user = slugify(user)
     base_url = 'https://www.8a.nu/user/{}'
     user_url = base_url.format(user)
     r = requests.get(user_url)
@@ -56,7 +57,7 @@ def get_user_info(user):
 
 
 def get_recommended_ascents(user):
-    user = user.lower().replace(' ', '-')
+    user = slugify(user)
     driver = login()
     base_url = 'https://www.8a.nu/api/users/{}/recommended?pageSize=15&pageIndex={}'
     page_index = 0
@@ -75,7 +76,7 @@ def get_recommended_ascents(user):
     return recommendations
 
 def get_user_ascents(user, category):
-    user = user.lower().replace(' ', '-')
+    user = slugify(user)
     driver = login()
     base_url = 'https://www.8a.nu/api/users/{}/ascents?category={}&pageIndex={}&pageSize=50&sortfield=grade_desc&timeFilter=0&gradeFilter=0&typeFilter=&isAscented=true'
     ascents = []

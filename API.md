@@ -1,77 +1,84 @@
+# API Documentation
+
 ## Users
 
 Usage
 
-```
+```python
 from _8a_scraper.users import get_user_info, get_recommended_ascents, get_user_ascents
 ```
 
 ### `get_user_info(user)`
+
 Parameters:
-  - `user` - Climber name (e.g. `'Adam Ondra'`)
+
+- `user` - Climber name (e.g. `'Adam Ondra'`)
 
 Returns:
 
-  A dictionary containing the following keys:
+A dictionary containing the following keys:
 
-  ```
-  ['location', 'age', 'website', 'sponsors', 'started_climbing', 'occupation', 
-    'other_interests', 'best_climbing_area', 'known_areas']
+```python
+['location', 'age', 'website', 'sponsors', 'started_climbing', 'occupation',
+  'other_interests', 'best_climbing_area', 'known_areas']
   ```
 
-  If a user did not input a field, the value for the corresponding key will be `None`.
+If a user did not input a field, the value for the corresponding key will be `None`.
 
 ### `get_recommended_ascents(user)`
 
 Parameters:
-  - `user` - Climber name (e.g. `'Adam Ondra'`)
+
+- `user` - Climber name (e.g. `'Adam Ondra'`)
 
 Returns:
 
-  A list of dictionaries containing the following keys for each ascent:
+A list of dictionaries containing the following keys for each ascent:
 
-  ```
-  ['areaName', 'areaSlug', 'countrySlug', 'cragName', 'cragSlug', 'difficulty', 'gradeIndex', 'sectorSlug', 'zlaggableName', 'zlaggableSlug', 'category']
-  ```
+```python
+['areaName', 'areaSlug', 'countrySlug', 'cragName', 'cragSlug', 'difficulty', 'gradeIndex', 'sectorSlug', 'zlaggableName', 'zlaggableSlug', 'category']
+```
 
-  If a user did not input a field, the value for the corresponding key will be `None`.
+If a user did not input a field, the value for the corresponding key will be `None`.
 
 ### `get_user_ascents(user, category)`
 
 Parameters:
-  - `user` - Climber name (e.g. `'Adam Ondra'`)
-  - `category` - `'bouldering' | 'sportclimbing'`
+
+- `user` - Climber name (e.g. `'Adam Ondra'`)
+- `category` - `'bouldering' | 'sportclimbing'`
 
 Returns:
 
-  A list of dictionaries containing the following keys for each ascent:
+A list of dictionaries containing the following keys for each ascent:
 
-  ```
-  ['ascentId', 'areaName', 'areaSlug', 'cragName', 'cragSlug', 'sectorSlug', 'zlaggableName', 'zlaggableSlug', 'countrySlug', 'userAvatar', 'userName', 'userSlug', 'date', 'difficulty', 'gradeIndex', 'comment', 'isHard', 'isEasy', 'firstAscent', 'secondGo', 'type', 'notes', 'rating']
-  ```
+```python
+['ascentId', 'areaName', 'areaSlug', 'cragName', 'cragSlug', 'sectorSlug', 'zlaggableName', 'zlaggableSlug', 'countrySlug', 'userAvatar', 'userName', 'userSlug', 'date', 'difficulty', 'gradeIndex', 'comment', 'isHard', 'isEasy', 'firstAscent', 'secondGo', 'type', 'notes', 'rating']
+```
 
-  If a user did not input a field, the value for the corresponding key will be `None`.
+If a user did not input a field, the value for the corresponding key will be `None`.
 
 ## Ascents
 
 Usage
 
-```
+```python
 from _8a_scraper.ascents import get_ascents
 ```
 
 ### `get_ascents(name, category)`
 
 Parameters:
-  - `name` - Climb name (e.g. `'Midnight Lightning'`)
-  - `category` - `'bouldering' | 'sportclimbing'`
+
+- `name` - Climb name (e.g. `'Midnight Lightning'`)
+- `category` - `'bouldering' | 'sportclimbing'`
 
 Returns:
 
-  A list of dictionaries containing the following keys for each climber who ascented the climb:
+A list of dictionaries containing the following keys for each climber who ascented the climb:
 
-  ```
-  ['userAvatar', 'userName', 'userSlug', 'date', 'difficulty', 'isHard', 'isEasy', 'type', 'notes', 'rating', 'userPrivate', 'firstAscent', 'secondGo']
-  ```
+```python
+['userAvatar', 'userName', 'userSlug', 'date', 'difficulty', 'isHard', 'isEasy', 'type', 'notes', 'rating', 'userPrivate', 'firstAscent', 'secondGo']
+```
 
-  If a user did not input a field, the value for the corresponding key will be `None`.
+If a user did not input a field, the value for the corresponding key will be `None`.
