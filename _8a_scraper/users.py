@@ -72,7 +72,7 @@ def get_recommended_ascents(user):
             page_index+=1
         else:
             break
-
+    driver.quit()
     return recommendations
 
 def get_user_ascents(user, category):
@@ -91,4 +91,5 @@ def get_user_ascents(user, category):
         else:
             ascents+=data['ascents']
             page_index+=1
+    driver.quit()
     return ascents  

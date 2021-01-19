@@ -29,5 +29,5 @@ def get_ascents(name, category):
             page_index+=1
         else:
             break
-
+    driver.quit()
     return ascents  
