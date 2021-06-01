@@ -9,13 +9,15 @@ except:
 def get_ascents(name, category):
     driver = login()
     name = name.lower().replace(' ', '+')
-    driver.get(f'https://www.8a.nu/api/search?query={name}&pageSize=100')
+    url = f'https://www.8a.nu/api/search?query={name}&pageSize=100'
+    driver.get(url)
     pre = driver.find_element_by_tag_name('pre').text
     items = json.loads(pre)['items']
-
-    possibilities = [i for i in items if 'zlaggableName' in i]
+    _category = 1 if category=='bouldering' else 0
+    possibilities = [i for i in items if 'zlaggableName' in i and
+            i['category']==_category]
     ascent = max(possibilities, key=lambda x: x['totalAscents'])
-
+     
     base_url = 'https://www.8a.nu/api/crags/{}/{}/{}/sectors/{}/routes/{}/ascents?pageIndex={}&sortfield='
     page_index = 0
     ascents = []
@@ -24,8 +26,9 @@ def get_ascents(name, category):
         driver.get(url)
         pre = driver.find_element_by_tag_name('pre').text
         data = json.loads(pre)
-        if 'pagination' in data and data['pagination']['hasNext']:
+        if 'items' in data:
             ascents+=data['items']
+        if 'pagination' in data and data['pagination']['hasNext']:
             page_index+=1
         else:
             break
