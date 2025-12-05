@@ -7,5 +7,5 @@ python-slugify==4.0.1
 requests==2.24.0
 selenium==3.141.0
 soupsieve==2.0.1
-urllib3==1.25.9
+urllib3==2.6.0
 webdriver-manager==3.2.2
